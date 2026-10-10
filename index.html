@@ -5,25 +5,26 @@
 <title>Mohammed Akbar Kittur - Cloud DevOps Engineer</title>
 <style>
 *{box-sizing:border-box;margin:0}body{background:#080810;color:#fff;font-family:Arial,sans-serif;text-align:center}
-h1{padding:16px 0 2px;font-size:28px;letter-spacing:1px}h1 span{color:#7c3aed}
+h1{padding:16px 0 2px;font-size:28px}
 p.title{color:#7c3aed;font-weight:700;font-size:13px;letter-spacing:3px;margin-bottom:2px}
 p.sub{color:#666;font-size:11px;margin-bottom:10px}
 #gameBox{max-width:420px;margin:0 auto;position:relative;background:#111;border:2px solid #222;border-radius:14px;overflow:hidden}
 canvas{display:block;width:100%;background:#0f0f1e}
 #hud{display:flex;justify-content:space-between;padding:8px 12px;background:#151528;font-size:11px;color:#888}
 #hud b{color:#fff}
-.btn{position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);background:#7c3aed;color:#fff;border:0;padding:14px 28px;border-radius:30px;font-weight:800;cursor:pointer;box-shadow:0 0 30px rgba(124,58,237,.6);z-index:5}
+.btn{position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);background:#7c3aed;color:#fff;border:0;padding:14px 28px;border-radius:30px;font-weight:800;cursor:pointer;z-index:5}
 .controls{padding:10px;display:flex;gap:10px;justify-content:center}
 .controls button{flex:1;max-width:130px;padding:16px;background:#1e1e33;border:1px solid #2a2a4a;color:#fff;border-radius:12px;font-size:20px}
 .links{margin:14px 0;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.links a{padding:8px 14px;border-radius:20px;border:1px solid #2a2a44;color:#999;text-decoration:none;font-size:11px}
+.links a{padding:9px 16px;border-radius:20px;border:1px solid #2a2a44;color:#999;text-decoration:none;font-size:12px}
 .links a.hire{background:#7c3aed;border-color:#7c3aed;color:#fff;font-weight:700}
+.links a.linkedin{border-color:#0a66c2;color:#0a66c2}
 </style>
 </head>
 <body>
 <h1>MOHAMMED AKBAR KITTUR</h1>
 <p class="title">CLOUD DEVOPS ENGINEER</p>
-<p class="sub">AWS • Terraform • Docker • Kubernetes • Bangalore | Use ◀ ▶ to race</p>
+<p class="sub">AWS • Terraform • Docker • Kubernetes • Bangalore</p>
 
 <div id="gameBox">
   <div id="hud"><div>Speed: <b id="score">0</b></div><div>Boosts: <b id="boost">0</b></div><div>Best: <b id="best">0</b></div></div>
@@ -37,9 +38,10 @@ canvas{display:block;width:100%;background:#0f0f1e}
 </div>
 
 <div class="links">
-  <a href="https://mohammed-akbar-kittur.github.io/">Portfolio</a>
-  <a href="https://github.com/Mohammed-Akbar-Kittur">GitHub</a>
-  <a class="hire" href="https://www.linkedin.com/in/mohammed-akbar-kittur">Hire Me →</a>
+  <a class="hire" href="mailto:kitturmohammedakbar@gmail.com?subject=Hiring%20Cloud%20DevOps%20Engineer%20-%20Akbar%20Kittur">Hire Me → kitturmohammedakbar@gmail.com</a>
+  <a class="linkedin" href="https://www.linkedin.com/in/mohammed-akbar-kittur" target="_blank">LinkedIn</a>
+  <a href="https://github.com/Mohammed-Akbar-Kittur" target="_blank">GitHub</a>
+  <a href="https://mohammed-akbar-kittur.github.io/" target="_blank">Portfolio</a>
 </div>
 
 <script>
@@ -57,20 +59,4 @@ function spawnObs(){ if(!playing) return; obstacles.push({x:Math.random()*340,y:
 function spawnBoost(){ if(!playing) return; boosts.push({x:Math.random()*340,y:-80,w:28,h:28,type:Math.random()>0.5?'terraform':'docker'}); setTimeout(spawnBoost, 2000); }
 function update(){
   if(keys.left) player.x-=player.speed; if(keys.right) player.x+=player.speed;
-  player.x=Math.max(0,Math.min(360,player.x));
-  ctx.fillStyle='#0f0f1e'; ctx.fillRect(0,0,400,540);
-  ctx.fillStyle='#1a1a35'; ctx.fillRect(90,0,4,540); ctx.fillRect(306,0,4,540);
-  ctx.strokeStyle='#222'; ctx.setLineDash([20,20]); ctx.beginPath(); ctx.moveTo(200,0); ctx.lineTo(200,540); ctx.stroke(); ctx.setLineDash([]);
-  obstacles.forEach((o,i)=>{ o.y+=4+score/100; ctx.font='26px Arial'; ctx.fillText(o.type==='bill'?'💸':'🔴',o.x,o.y); if(collide(player,o)) gameOver(); if(o.y>600) obstacles.splice(i,1); });
-  boosts.forEach((b,i)=>{ b.y+=4+score/100; ctx.font='22px Arial'; ctx.fillText(b.type==='terraform'?'🚀':'🐳',b.x,b.y); if(collide(player,b)){ score+=25; boosts.splice(i,1); document.getElementById('boost').textContent=parseInt(document.getElementById('boost').textContent)+1; } if(b.y>600) boosts.splice(i,1); });
-  ctx.font='36px Arial'; ctx.fillText('🏎️',player.x,player.y+30);
-  ctx.fillStyle='#7c3aed'; ctx.font='9px monospace'; ctx.fillText('DEVOPS-01',player.x+2,player.y+48);
-  score+=0.2; document.getElementById('score').textContent=Math.floor(score);
-}
-function collide(a,b){ return a.x<b.x+b.w && a.x+a.w>b.x && a.y<b.y+b.h && a.y+a.h>b.y; }
-function gameOver(){ playing=false; clearInterval(loop); if(score>best){ best=Math.floor(score); localStorage.setItem('akbar-best',best); document.getElementById('best').textContent=best; } const btn=document.getElementById('playBtn'); btn.style.display='block'; btn.textContent=`💥 CRASH! ${Math.floor(score)} - RESTART`; }
-window.addEventListener('keydown',e=>{ if(e.key==='ArrowLeft') keys.left=true; if(e.key==='ArrowRight') keys.right=true; });
-window.addEventListener('keyup',e=>{ if(e.key==='ArrowLeft') keys.left=false; if(e.key==='ArrowRight') keys.right=false; });
-</script>
-</body>
-</html>
+  player.x=Math.max(0,Math.min(360,player.x
