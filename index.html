@@ -3,101 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DevOps Lab - Free for Students | Akbar Kittur</title>
+<title>Mohammed Akbar Kittur | Cloud Engineer</title>
 <style>
-  *{box-sizing:border-box} body{margin:0;font-family:'Segoe UI',sans-serif;background:#f6fef8;color:#102a18;line-height:1.6}
-  .header{background:linear-gradient(135deg,#052e16,#16a34a,#4ade80);color:#fff;padding:60px 20px;text-align:center}
-  .header h1{font-size:42px;margin:10px 0} .badge{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);padding:6px 14px;border-radius:20px;display:inline-block;font-size:13px}
-  .live{background:#dcfce7;border:2px solid #16a34a;padding:14px;border-radius:12px;text-align:center;font-weight:700;max-width:800px;margin:-28px auto 20px}
+  *{box-sizing:border-box} body{margin:0;font-family:'Segoe UI',sans-serif;background:#f8fafc;color:#0f172a}
+  .hero{background:linear-gradient(135deg,#052e16,#16a34a);color:#fff;padding:70px 20px;text-align:center}
+  .hero h1{font-size:44px;margin:0} .hero p{font-size:18px;opacity:.9;max-width:700px;margin:15px auto}
+  .status{background:#fff;color:#052e16;display:inline-block;padding:10px 20px;border-radius:30px;font-weight:700;margin-top:20px;box-shadow:0 5px 15px rgba(0,0,0,.2)}
   .container{max-width:900px;margin:auto;padding:20px}
-  .card{background:#fff;border-radius:16px;padding:26px;margin:20px 0;box-shadow:0 4px 18px rgba(0,0,0,.06);border-left:6px solid #16a34a}
-  .card.blue{border-left-color:#0ea5e9} .card.orange{border-left-color:#f59e0b}
-  h2{color:#16a34a;margin-top:0} code{background:#0f172a;color:#4ade80;padding:3px 8px;border-radius:6px}
-  pre{background:#0f172a;color:#e2e8f0;padding:16px;border-radius:12px;overflow-x:auto;font-size:13px}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px} @media(max-width:700px){.grid{grid-template-columns:1fr}}
-  .step{background:#f0fdf4;border:1px solid #bbf7d0;padding:12px;border-radius:10px;font-size:14px}
+  .card{background:#fff;border-radius:16px;padding:26px;margin:20px 0;box-shadow:0 4px 15px rgba(0,0,0,.05);border-top:4px solid #16a34a}
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px} @media(max-width:700px){.grid{grid-template-columns:1fr}}
+  .tool{background:#f0fdf4;border:1px solid #bbf7d0;padding:16px;border-radius:12px;text-align:center;transition:.2s} .tool:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(22,163,74,.15)}
+  .tool h3{margin:0 0 6px;color:#16a34a} .tool a{color:#16a34a;text-decoration:none;font-weight:700;font-size:13px}
   .btn{display:inline-block;background:#16a34a;color:#fff;padding:12px 24px;border-radius:30px;text-decoration:none;font-weight:700;margin:6px}
   .btn2{background:#fff;border:2px solid #16a34a;color:#16a34a}
-  footer{text-align:center;padding:30px;color:#666;font-size:13px;border-top:1px solid #e5e7eb;margin-top:30px}
+  footer{text-align:center;padding:30px;color:#64748b;font-size:13px}
 </style>
 </head>
 <body>
-<div class="header">
-  <span class="badge">☁️ FREE OPEN SOURCE FOR STUDENTS</span>
-  <h1>My Web is Working!</h1>
-  <p>A Real DevOps Lab - Docker + GitHub Actions + Docker Hub + Pages<br>One git push = Auto Build + Push + Deploy</p>
-  <p><b>Mohammed Akbar Kittur</b> | Cloud & DevOps Engineer</p>
+
+<div class="hero">
+  <h1>My Web is Working! 🚀</h1>
+  <p>Welcome to my Cloud Lab - Built by Mohammed Akbar Kittur</p>
+  <div class="status">✅ Live & Running - Cloud Engineer Portfolio</div>
 </div>
-<div class="live">✅ Live: GitHub Pages | ✅ Docker Hub: Auto Pushed | ✅ CI/CD: Working</div>
+
 <div class="container">
 
   <div class="card">
-    <h2>👋 Welcome Visitor - What is this?</h2>
-    <p>This is not just my portfolio. This is a <b>free template</b> for you to learn DevOps & get your own website live in 10 mins.</p>
-    <div class="grid">
-      <div class="step"><b>Learn</b><br>Docker, GitHub Actions, CI/CD pipeline</div>
-      <div class="step"><b>Use</b><br>Fork and make your own portfolio FREE</div>
-      <div class="step"><b>Run</b><br>Docker commands given below - copy paste</div>
-      <div class="step"><b>Show</b><br>Use as DevOps project in your resume</div>
-    </div>
-  </div>
-
-  <div class="card blue">
-    <h2 style="color:#0ea5e9;">🏗️ How It Works</h2>
-    <pre>git push (your code)
-   ↓
-GitHub Actions (builds Docker image)
-   ↓
-Docker Hub (stores image: mohammedakbarkittur/myweb)
-   ↓
-GitHub Pages (hosts this site live)
-
-PLAN → BUILD → TEST → DEPLOY - 100% Automated & FREE</pre>
+    <h2>👋 Hello Visitor!</h2>
+    <p>Thanks for visiting my lab. I'm <b>Mohammed Akbar Kittur</b>, Cloud & DevOps Engineer from Bangalore. This site is part of my cloud experiments.</p>
+    <p>I share useful free resources below that helped me become a Cloud Engineer - hope it helps you too!</p>
   </div>
 
   <div class="card">
-    <h2>⚡ Try It Yourself - Copy Paste Commands</h2>
-    <h3>1. Pull & Run My Image</h3>
-    <pre>docker pull mohammedakbarkittur/myweb:latest
-docker run -d -p 8080:80 mohammedakbarkittur/myweb:latest
-# Open http://localhost:8080</pre>
-    <h3>2. Clone This Repo</h3>
-    <pre>git clone https://github.com/Mohammed-Akbar-Kittur/myweb.git
-cd myweb
-docker build -t myweb .
-docker run -p 8080:80 myweb</pre>
-    <h3>3. Dockerfile (nginx)</h3>
-    <pre>FROM nginx:alpine
-COPY index.html /usr/share/nginx/html/index.html
-EXPOSE 80</pre>
+    <h2>🎁 Useful Free Resources For You (Cloud & DevOps)</h2>
+    <div class="grid">
+      <div class="tool">
+        <h3>☁️ AWS Free Tier</h3>
+        <p style="font-size:13px;">12 months free cloud labs</p>
+        <a href="https://aws.amazon.com/free/" target="_blank">Start Learning →</a>
+      </div>
+      <div class="tool">
+        <h3>🐳 Docker Playground</h3>
+        <p style="font-size:13px;">Practice Docker in browser</p>
+        <a href="https://labs.play-with-docker.com/" target="_blank">Try Now →</a>
+      </div>
+      <div class="tool">
+        <h3>📚 Roadmap.sh</h3>
+        <p style="font-size:13px;">DevOps roadmap 2026</p>
+        <a href="https://roadmap.sh/devops" target="_blank">View Roadmap →</a>
+      </div>
+      <div class="tool">
+        <h3>🎓 KodeKloud Free</h3>
+        <p style="font-size:13px;">Free DevOps labs</p>
+        <a href="https://kodekloud.com/free-labs" target="_blank">Practice →</a>
+      </div>
+      <div class="tool">
+        <h3>💼 Interview Q&A</h3>
+        <p style="font-size:13px;">Top 50 DevOps questions</p>
+        <a href="https://github.com/awesome-devops" target="_blank">Prepare →</a>
+      </div>
+      <div class="tool">
+        <h3>🚀 My Portfolio</h3>
+        <p style="font-size:13px;">See my full work</p>
+        <a href="https://mohammed-akbar-kittur.github.io/" target="_blank">Visit →</a>
+      </div>
+    </div>
   </div>
 
-  <div class="card orange">
-    <h2 style="color:#d97706;">🎁 Make Your Own Website in 2 Minutes</h2>
-    <ol>
-      <li>Go to <code>github.com/Mohammed-Akbar-Kittur/myweb</code> → Click <b>Fork</b></li>
-      <li>In YOUR fork → Settings → Pages → Branch: main → Save</li>
-      <li>Edit index.html → Change my name to your name → Commit</li>
-      <li>Your site: <code>your-username.github.io/myweb/</code> - LIVE!</li>
-    </ol>
-    <a class="btn" href="https://github.com/Mohammed-Akbar-Kittur/myweb/fork" target="_blank">Fork This Repo</a>
-    <a class="btn btn2" href="https://github.com/Mohammed-Akbar-Kittur/myweb" target="_blank">View Code</a>
+  <div class="card">
+    <h2>🛠️ My Skills</h2>
+    <p><b>Cloud:</b> AWS (EC2, S3, VPC, IAM, Lambda) | <b>IaC:</b> Terraform | <b>Containers:</b> Docker, Kubernetes | <b>CI/CD:</b> GitHub Actions, Jenkins | <b>OS:</b> Linux</p>
+    <a class="btn" href="https://www.linkedin.com/in/mohammed-akbar-kittur" target="_blank">Connect on LinkedIn</a>
+    <a class="btn btn2" href="https://mohammed-akbar-kittur.github.io/" target="_blank">Main Portfolio</a>
   </div>
 
-  <div class="card blue">
-    <h2 style="color:#0ea5e9;">🤝 About Me - Let's Connect</h2>
-    <p>I'm <b>Mohammed Akbar Kittur</b> from Bangalore, Cloud/DevOps Engineer (AWS, Terraform, Docker, K8s). I made this lab to help students get started in DevOps without paying anything.</p>
-    <p><b>Did this help you? Let's connect - I help beginners!</b></p>
-    <a class="btn" style="background:#0ea5e9" href="https://www.linkedin.com/in/mohammed-akbar-kittur" target="_blank">LinkedIn</a>
-    <a class="btn btn2" style="border-color:#0ea5e9;color:#0ea5e9" href="https://mohammed-akbar-kittur.github.io/" target="_blank">Main Portfolio</a>
-    <a class="btn btn2" href="https://github.com/Mohammed-Akbar-Kittur" target="_blank">GitHub</a>
+  <div class="card" style="background:#f0fdf4;text-align:center;">
+    <h2>💬 Need Help in Cloud Career?</h2>
+    <p>I'm happy to help students & beginners. If you found these resources useful, let's connect!</p>
+    <p style="font-size:13px;color:#666;">This site is always up and running as part of my learning journey.</p>
   </div>
 
 </div>
+
 <footer>
-  Built by Mohammed Akbar Kittur • Free for community • 2026<br>
-  If you used this, please give ⭐ on GitHub<br><br>
-  <code>docker pull mohammedakbarkittur/myweb:latest</code>
+  © 2026 Mohammed Akbar Kittur • Cloud Engineer • Bangalore, India<br>
+  Built with passion for Cloud Community
 </footer>
+
 </body>
 </html>
