@@ -1,95 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohammed Akbar Kittur | Cloud Engineer</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deploy Akbar Kittur</title>
 <style>
-  *{box-sizing:border-box} body{margin:0;font-family:'Segoe UI',sans-serif;background:#f8fafc;color:#0f172a}
-  .hero{background:linear-gradient(135deg,#052e16,#16a34a);color:#fff;padding:70px 20px;text-align:center}
-  .hero h1{font-size:44px;margin:0} .hero p{font-size:18px;opacity:.9;max-width:700px;margin:15px auto}
-  .status{background:#fff;color:#052e16;display:inline-block;padding:10px 20px;border-radius:30px;font-weight:700;margin-top:20px;box-shadow:0 5px 15px rgba(0,0,0,.2)}
-  .container{max-width:900px;margin:auto;padding:20px}
-  .card{background:#fff;border-radius:16px;padding:26px;margin:20px 0;box-shadow:0 4px 15px rgba(0,0,0,.05);border-top:4px solid #16a34a}
-  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px} @media(max-width:700px){.grid{grid-template-columns:1fr}}
-  .tool{background:#f0fdf4;border:1px solid #bbf7d0;padding:16px;border-radius:12px;text-align:center;transition:.2s} .tool:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(22,163,74,.15)}
-  .tool h3{margin:0 0 6px;color:#16a34a} .tool a{color:#16a34a;text-decoration:none;font-weight:700;font-size:13px}
-  .btn{display:inline-block;background:#16a34a;color:#fff;padding:12px 24px;border-radius:30px;text-decoration:none;font-weight:700;margin:6px}
-  .btn2{background:#fff;border:2px solid #16a34a;color:#16a34a}
-  footer{text-align:center;padding:30px;color:#64748b;font-size:13px}
+*{box-sizing:border-box}body{margin:0;background:#000;color:#0f0;font-family:'Courier New',monospace;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wrap{text-align:center;max-width:700px;padding:20px}
+h1{font-size:14px;color:#555;letter-spacing:4px;margin-bottom:30px}
+.btn{font-size:28px;background:transparent;border:2px solid #0f0;color:#0f0;padding:20px 50px;border-radius:100px;cursor:pointer;letter-spacing:2px;transition:.2s;box-shadow:0 0 30px rgba(0,255,0,.3)}
+.btn:hover{background:#0f0;color:#000;box-shadow:0 0 60px rgba(0,255,0,.8);transform:scale(1.05)}
+.logs{margin-top:30px;text-align:left;background:#0a0a0a;border:1px solid #1a1a1a;padding:16px;border-radius:12px;height:280px;overflow:hidden;font-size:12px;line-height:18px;display:none}
+.log{opacity:0;animation:fade.3s forwards} @keyframes fade{to{opacity:1}}
+.final{display:none;margin-top:20px}
+.final h2{color:#fff;font-size:32px;margin:0}.final p{color:#888}
+.links a{display:inline-block;margin:8px;padding:10px 20px;border:1px solid #222;border-radius:30px;color:#fff;text-decoration:none;font-size:13px}
+.links a.hire{border-color:#0f0;color:#0f0;background:rgba(0,255,0,.1)}
 </style>
 </head>
 <body>
+<div class="wrap">
+  <h1>MOHAMMED AKBAR KITTUR // CLOUD ENGINEER // BANGALORE</h1>
 
-<div class="hero">
-  <h1>My Web is Working! 🚀</h1>
-  <p>Welcome to my Cloud Lab - Built by Mohammed Akbar Kittur</p>
-  <div class="status">✅ Live & Running - Cloud Engineer Portfolio</div>
-</div>
-
-<div class="container">
-
-  <div class="card">
-    <h2>👋 Hello Visitor!</h2>
-    <p>Thanks for visiting my lab. I'm <b>Mohammed Akbar Kittur</b>, Cloud & DevOps Engineer from Bangalore. This site is part of my cloud experiments.</p>
-    <p>I share useful free resources below that helped me become a Cloud Engineer - hope it helps you too!</p>
+  <div id="start">
+    <button class="btn" onclick="deploy()">▶ DEPLOY AKBAR</button>
+    <p style="color:#333;font-size:11px;margin-top:16px">CLICK TO DEPLOY TO YOUR COMPANY</p>
   </div>
 
-  <div class="card">
-    <h2>🎁 Useful Free Resources For You (Cloud & DevOps)</h2>
-    <div class="grid">
-      <div class="tool">
-        <h3>☁️ AWS Free Tier</h3>
-        <p style="font-size:13px;">12 months free cloud labs</p>
-        <a href="https://aws.amazon.com/free/" target="_blank">Start Learning →</a>
-      </div>
-      <div class="tool">
-        <h3>🐳 Docker Playground</h3>
-        <p style="font-size:13px;">Practice Docker in browser</p>
-        <a href="https://labs.play-with-docker.com/" target="_blank">Try Now →</a>
-      </div>
-      <div class="tool">
-        <h3>📚 Roadmap.sh</h3>
-        <p style="font-size:13px;">DevOps roadmap 2026</p>
-        <a href="https://roadmap.sh/devops" target="_blank">View Roadmap →</a>
-      </div>
-      <div class="tool">
-        <h3>🎓 KodeKloud Free</h3>
-        <p style="font-size:13px;">Free DevOps labs</p>
-        <a href="https://kodekloud.com/free-labs" target="_blank">Practice →</a>
-      </div>
-      <div class="tool">
-        <h3>💼 Interview Q&A</h3>
-        <p style="font-size:13px;">Top 50 DevOps questions</p>
-        <a href="https://github.com/awesome-devops" target="_blank">Prepare →</a>
-      </div>
-      <div class="tool">
-        <h3>🚀 My Portfolio</h3>
-        <p style="font-size:13px;">See my full work</p>
-        <a href="https://mohammed-akbar-kittur.github.io/" target="_blank">Visit →</a>
-      </div>
+  <div class="logs" id="logs"></div>
+
+  <div class="final" id="final">
+    <h2>✅ Deployed Successfully</h2>
+    <p>Akbar Kittur is now running in your organization</p>
+    <p style="font-size:12px;color:#555">Instance: cloud-engineer.xlarge | Skills: AWS, Terraform, Docker, K8s, Linux | Uptime: 99.9% | Cost: Saves 40% AWS bill</p>
+    <div class="links">
+      <a class="hire" href="https://www.linkedin.com/in/mohammed-akbar-kittur" target="_blank">Hire Me →</a>
+      <a href="https://mohammed-akbar-kittur.github.io/" target="_blank">Portfolio</a>
+      <a href="https://github.com/Mohammed-Akbar-Kittur" target="_blank">GitHub</a>
     </div>
+    <p style="color:#222;font-size:10px;margin-top:20px">Built by Akbar • No one has a deploy button portfolio • Bangalore 2026</p>
   </div>
-
-  <div class="card">
-    <h2>🛠️ My Skills</h2>
-    <p><b>Cloud:</b> AWS (EC2, S3, VPC, IAM, Lambda) | <b>IaC:</b> Terraform | <b>Containers:</b> Docker, Kubernetes | <b>CI/CD:</b> GitHub Actions, Jenkins | <b>OS:</b> Linux</p>
-    <a class="btn" href="https://www.linkedin.com/in/mohammed-akbar-kittur" target="_blank">Connect on LinkedIn</a>
-    <a class="btn btn2" href="https://mohammed-akbar-kittur.github.io/" target="_blank">Main Portfolio</a>
-  </div>
-
-  <div class="card" style="background:#f0fdf4;text-align:center;">
-    <h2>💬 Need Help in Cloud Career?</h2>
-    <p>I'm happy to help students & beginners. If you found these resources useful, let's connect!</p>
-    <p style="font-size:13px;color:#666;">This site is always up and running as part of my learning journey.</p>
-  </div>
-
 </div>
 
-<footer>
-  © 2026 Mohammed Akbar Kittur • Cloud Engineer • Bangalore, India<br>
-  Built with passion for Cloud Community
-</footer>
-
+<script>
+const steps=[
+"[INIT] Connecting to ap-south-1 (Mumbai)... OK",
+"[AUTH] Verifying IAM: akbar-kittur... Authorized ✅",
+"[BUILD] Pulling image: mohammedakbarkittur/myweb:latest... Done",
+"[CHECK] Skills check: AWS... PASSED",
+"[CHECK] Skills check: Terraform... PASSED",
+"[CHECK] Skills check: Docker... PASSED",
+"[CHECK] Skills check: Kubernetes... PASSED",
+"[CHECK] Skills check: Linux... PASSED",
+"[DEPLOY] Launching instance i-akbar-kittur-prod...",
+"[SCALE] Auto Scaling Group: 2-6 instances ready",
+"[TEST] Load test 1000 req... 0% failure",
+"[SECURE] Security Group: Hardened",
+"[DONE] Deployment completed in 3.2s",
+"[COST] Estimated savings: 40% vs old infra"
+];
+function deploy(){
+  document.getElementById('start').style.display='none';
+  const logs=document.getElementById('logs'); logs.style.display='block';
+  let i=0;
+  let timer=setInterval(()=>{
+    if(i<steps.length){
+      let d=document.createElement('div'); d.className='log'; d.textContent='> '+steps[i]; logs.appendChild(d);
+      logs.scrollTop=logs.scrollHeight; i++;
+    }else{
+      clearInterval(timer);
+      setTimeout(()=>{ document.getElementById('final').style.display='block'; logs.style.display='none'; },600);
+    }
+  },280);
+}
+</script>
 </body>
 </html>
