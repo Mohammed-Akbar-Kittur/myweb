@@ -62,4 +62,15 @@ function update(){
   ctx.fillStyle='#1a1a35'; ctx.fillRect(90,0,4,540); ctx.fillRect(306,0,4,540);
   ctx.strokeStyle='#222'; ctx.setLineDash([20,20]); ctx.beginPath(); ctx.moveTo(200,0); ctx.lineTo(200,540); ctx.stroke(); ctx.setLineDash([]);
   obstacles.forEach((o,i)=>{ o.y+=4+score/100; ctx.font='26px Arial'; ctx.fillText(o.type==='bill'?'💸':'🔴',o.x,o.y); if(collide(player,o)) gameOver(); if(o.y>600) obstacles.splice(i,1); });
-  boosts.forEach((b,i)=>{ b.y+=4+score/100; ctx.font='22px Arial'; ctx.fillText(b.type==='terraform'?'🚀':'🐳',b.x,b.y); if(collide(player,b)){ score+=25; boosts.splice(i,1); document.getElementById('boost').textContent=parseInt(document.getElement
+  boosts.forEach((b,i)=>{ b.y+=4+score/100; ctx.font='22px Arial'; ctx.fillText(b.type==='terraform'?'🚀':'🐳',b.x,b.y); if(collide(player,b)){ score+=25; boosts.splice(i,1); document.getElementById('boost').textContent=parseInt(document.getElementById('boost').textContent)+1; } if(b.y>600) boosts.splice(i,1); });
+  ctx.font='36px Arial'; ctx.fillText('🏎️',player.x,player.y+30);
+  ctx.fillStyle='#7c3aed'; ctx.font='9px monospace'; ctx.fillText('DEVOPS-01',player.x+2,player.y+48);
+  score+=0.2; document.getElementById('score').textContent=Math.floor(score);
+}
+function collide(a,b){ return a.x<b.x+b.w && a.x+a.w>b.x && a.y<b.y+b.h && a.y+a.h>b.y; }
+function gameOver(){ playing=false; clearInterval(loop); if(score>best){ best=Math.floor(score); localStorage.setItem('akbar-best',best); document.getElementById('best').textContent=best; } const btn=document.getElementById('playBtn'); btn.style.display='block'; btn.textContent=`💥 CRASH! ${Math.floor(score)} - RESTART`; }
+window.addEventListener('keydown',e=>{ if(e.key==='ArrowLeft') keys.left=true; if(e.key==='ArrowRight') keys.right=true; });
+window.addEventListener('keyup',e=>{ if(e.key==='ArrowLeft') keys.left=false; if(e.key==='ArrowRight') keys.right=false; });
+</script>
+</body>
+</html>
