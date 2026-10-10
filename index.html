@@ -1,67 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Akbar Kittur - Cloud DevOps Engineer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammed Akbar Kittur - Cloud DevOps Engineer</title>
 <style>
-body{margin:0;background:#080810;color:#fff;font-family:Arial;text-align:center}
-h1{padding:14px 0 2px;font-size:20px}
-.title{color:#7c3aed;font-weight:800;font-size:11px;letter-spacing:3px}
-.sub{color:#555;font-size:9px;margin-bottom:10px}
-#box{max-width:360px;margin:0 auto;position:relative;border:2px solid #222;border-radius:16px;overflow:hidden;background:#000}
-canvas{display:block;width:100%;height:420px}
-#hud{display:flex;justify-content:space-between;padding:6px 10px;background:#111;color:#666;font-size:9px;border-bottom:1px solid #222}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#080810;color:#fff;font-family:Arial, Helvetica, sans-serif;text-align:center;min-height:100vh}
+h1{padding:16px 0 4px;font-size:22px;letter-spacing:0.5px}
+.title{color:#7c3aed;font-weight:800;font-size:12px;letter-spacing:3px;margin-bottom:3px}
+.sub{color:#666;font-size:10px;margin-bottom:12px}
+#gameBox{max-width:360px;margin:0 auto;position:relative;background:#000;border:2px solid #222;border-radius:18px;overflow:hidden;box-shadow:0 0 30px rgba(124,58,237,0.25)}
+canvas{display:block;width:100%;height:440px}
+#hud{display:flex;justify-content:space-between;padding:8px 12px;background:#111111;font-size:10px;color:#888;border-bottom:1px solid #222}
 #hud b{color:#fff}
-#start{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#7c3aed;color:#fff;border:0;padding:12px 24px;border-radius:24px;font-weight:800;z-index:10}
-.ctrl{display:flex;gap:8px;justify-content:center;padding:10px}
-.ctrl button{width:100px;padding:12px;background:#1a1a2e;border:1px solid #333;color:#fff;border-radius:10px}
-.links{max-width:360px;margin:12px auto;display:flex;flex-wrap:wrap;gap:6px;padding:0 10px;justify-content:center}
-.links a{padding:10px 14px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:700;border:1px solid #333}
-.hire{background:#7c3aed!important;color:#fff!important;border-color:#7c3aed!important;flex:1 1 100%}
-.linkedin{color:#60a5fa;background:#111;flex:1}
-.github{color:#aaa;background:#111;flex:1}
+#startBtn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#7c3aed;color:#fff;border:none;padding:14px 28px;border-radius:30px;font-weight:800;font-size:13px;cursor:pointer;z-index:10;box-shadow:0 0 25px rgba(124,58,237,0.6)}
+.controls{display:flex;gap:10px;justify-content:center;padding:12px}
+.controls button{width:110px;padding:14px;background:#151528;border:1px solid #2a2a4a;color:#fff;border-radius:12px;font-size:18px}
+.links{max-width:360px;margin:14px auto;display:flex;flex-wrap:wrap;gap:8px;padding:0 12px;justify-content:center}
+.links a{padding:11px 16px;border-radius:24px;text-decoration:none;font-size:12px;font-weight:700;border:1px solid #333;transition:0.2s}
+.links a.hire{background:#7c3aed;color:#fff;border-color:#7c3aed;flex:1 1 100%;font-size:14px;box-shadow:0 4px 15px rgba(124,58,237,0.4)}
+.links a.portfolio{background:#ffffff;color:#111;flex:1}
+.links a.linkedin{background:#0f0f1a;color:#60a5fa;border-color:#1e3a5f;flex:1}
+.links a.github{background:#111;color:#999;flex:1}
 </style>
 </head>
 <body>
+
 <h1>MOHAMMED AKBAR KITTUR</h1>
 <div class="title">CLOUD DEVOPS ENGINEER ☁️</div>
-<div class="sub">AWS • Terraform • Docker • Kubernetes • Bangalore</div>
+<div class="sub">AWS • TERRAFORM • DOCKER • KUBERNETES • BANGALORE</div>
 
-<div id="box">
-<div id="hud"><div>☁️ <b id="sc">0</b></div><div>🚀 <b id="bo">0</b></div><div>🏆 <b id="be">0</b></div></div>
-<canvas id="c" width="360" height="420"></canvas>
-<button id="start" onclick="start()">▶ START RACE</button>
-</div>
-
-<div class="ctrl">
-<button ontouchstart="L=1" ontouchend="L=0" onmousedown="L=1" onmouseup="L=0">◀</button>
-<button ontouchstart="R=1" ontouchend="R=0" onmousedown="R=1" onmouseup="R=0">▶</button>
-</div>
-
-<div class="links">
-<a class="hire" href="mailto:kitturmohammedakbar@gmail.com">📧 Hire Me → kitturmohammedakbar@gmail.com</a>
-<a class="linkedin" href="https://www.linkedin.com/in/mohammed-akbar-kittur" target="_blank">LinkedIn</a>
-<a class="github" href="https://github.com/Mohammed-Akbar-Kittur" target="_blank">GitHub</a>
-</div>
-
-<script>
-c=document.getElementById('c');ctx=c.getContext('2d');let x=160,y=340,w=34,h=40,s=5,L=0,R=0,obs=[],bst=[],cld=[],score=0,best=localStorage.getItem('b')||0,play=0,it;
-document.getElementById('be').textContent=best;
-for(let i=0;i<6;i++) cld.push({x:Math.random()*300,y:Math.random()*400,a:Math.random()*0.6+0.4,v:Math.random()*1+0.3});
-function start(){document.getElementById('start').style.display='none';x=160;obs=[];bst=[];score=0;play=1;it=setInterval(up,1000/60);setTimeout(so,400);setTimeout(sb,900);}
-function so(){if(!play)return;obs.push({x:Math.random()*300,y:-40,w:28,h:28,t:Math.random()>0.5?'💸':'🔴'});setTimeout(so,800-Math.min(500,score));}
-function sb(){if(!play)return;bst.push({x:Math.random()*300,y:-40,w:22,h:22,t:Math.random()>0.5?'🚀':'🐳'});setTimeout(sb,1700);}
-function up(){
-if(L) x-=s;if(R) x+=s;x=Math.max(0,Math.min(326,x));
-let g=ctx.createLinearGradient(0,0,0,420);g.addColorStop(0,'#bae6fd');g.addColorStop(1,'#f0f9ff');ctx.fillStyle=g;ctx.fillRect(0,0,360,420);
-cld.forEach(c=>{c.y+=c.v;if(c.y>430){c.y=-20;c.x=Math.random()*300;}ctx.font=(20*c.a+10)+'px Arial';ctx.fillText('☁️',c.x,c.y);});
-ctx.fillStyle='#e2e8f0';ctx.fillRect(70,0,220,420);ctx.fillStyle='#fff';ctx.fillRect(73,0,2,420);ctx.fillRect(285,0,2,420);
-ctx.setLineDash([18,14]);ctx.strokeStyle='#94a3b8';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(180,0);ctx.lineTo(180,420);ctx.stroke();ctx.setLineDash([]);ctx.lineWidth=1;
-obs.forEach((o,i)=>{o.y+=3.5+score/120;ctx.font='22px Arial';ctx.fillText(o.t,o.x,o.y);if(x<o.x+o.w&&x+w>o.x&&y<o.y+o.h&&y+h>o.y)over();if(o.y>450)obs.splice(i,1);});
-bst.forEach((b,i)=>{b.y+=3.5+score/120;ctx.font='18px Arial';ctx.fillText(b.t,b.x,b.y);if(x<b.x+b.w&&x+w>b.x&&y<b.y+b.h&&y+h>b.y){score+=25;bst.splice(i,1);document.getElementById('bo').textContent=parseInt(document.getElementById('bo').textContent)+1;}if(b.y>450)bst.splice(i,1);});
-ctx.font='30px Arial';ctx.fillText('🏎️',x,y);score+=0.2;document.getElementById('sc').textContent=Math.floor(score);
-}
-function over(){play=0;clearInterval(it);if(score>best){best=Math.floor(score);localStorage.setItem('b',best);document.getElementById('be').textContent=best;}let b=document.getElementById('start');b.style.display='block';b.textContent='💥 '+Math.floor(score)+' RESTART';}
-</script>
-</body>
-</html>
+<div id="gameBox">
+<div id="hud"><div>☁️ Speed: <b id="score">0</b></div><div>🚀 Boosts: <b id="boost">0</b></div><div>🏆 Best: <b
