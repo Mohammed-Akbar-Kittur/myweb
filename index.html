@@ -1,77 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deploy Akbar Kittur</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mohammed Akbar Kittur - Cloud DevOps Engineer</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#000;color:#0f0;font-family:'Courier New',monospace;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.wrap{text-align:center;max-width:700px;padding:20px}
-h1{font-size:14px;color:#555;letter-spacing:4px;margin-bottom:30px}
-.btn{font-size:28px;background:transparent;border:2px solid #0f0;color:#0f0;padding:20px 50px;border-radius:100px;cursor:pointer;letter-spacing:2px;transition:.2s;box-shadow:0 0 30px rgba(0,255,0,.3)}
-.btn:hover{background:#0f0;color:#000;box-shadow:0 0 60px rgba(0,255,0,.8);transform:scale(1.05)}
-.logs{margin-top:30px;text-align:left;background:#0a0a0a;border:1px solid #1a1a1a;padding:16px;border-radius:12px;height:280px;overflow:hidden;font-size:12px;line-height:18px;display:none}
-.log{opacity:0;animation:fade.3s forwards} @keyframes fade{to{opacity:1}}
-.final{display:none;margin-top:20px}
-.final h2{color:#fff;font-size:32px;margin:0}.final p{color:#888}
-.links a{display:inline-block;margin:8px;padding:10px 20px;border:1px solid #222;border-radius:30px;color:#fff;text-decoration:none;font-size:13px}
-.links a.hire{border-color:#0f0;color:#0f0;background:rgba(0,255,0,.1)}
+*{box-sizing:border-box;margin:0}body{background:#080810;color:#fff;font-family:Arial,sans-serif;text-align:center}
+h1{padding:16px 0 2px;font-size:28px;letter-spacing:1px}h1 span{color:#7c3aed}
+p.title{color:#7c3aed;font-weight:700;font-size:13px;letter-spacing:3px;margin-bottom:2px}
+p.sub{color:#666;font-size:11px;margin-bottom:10px}
+#gameBox{max-width:420px;margin:0 auto;position:relative;background:#111;border:2px solid #222;border-radius:14px;overflow:hidden}
+canvas{display:block;width:100%;background:#0f0f1e}
+#hud{display:flex;justify-content:space-between;padding:8px 12px;background:#151528;font-size:11px;color:#888}
+#hud b{color:#fff}
+.btn{position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);background:#7c3aed;color:#fff;border:0;padding:14px 28px;border-radius:30px;font-weight:800;cursor:pointer;box-shadow:0 0 30px rgba(124,58,237,.6);z-index:5}
+.controls{padding:10px;display:flex;gap:10px;justify-content:center}
+.controls button{flex:1;max-width:130px;padding:16px;background:#1e1e33;border:1px solid #2a2a4a;color:#fff;border-radius:12px;font-size:20px}
+.links{margin:14px 0;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.links a{padding:8px 14px;border-radius:20px;border:1px solid #2a2a44;color:#999;text-decoration:none;font-size:11px}
+.links a.hire{background:#7c3aed;border-color:#7c3aed;color:#fff;font-weight:700}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <h1>MOHAMMED AKBAR KITTUR // CLOUD ENGINEER // BANGALORE</h1>
+<h1>MOHAMMED AKBAR KITTUR</h1>
+<p class="title">CLOUD DEVOPS ENGINEER</p>
+<p class="sub">AWS • Terraform • Docker • Kubernetes • Bangalore | Use ◀ ▶ to race</p>
 
-  <div id="start">
-    <button class="btn" onclick="deploy()">▶ DEPLOY AKBAR</button>
-    <p style="color:#333;font-size:11px;margin-top:16px">CLICK TO DEPLOY TO YOUR COMPANY</p>
-  </div>
+<div id="gameBox">
+  <div id="hud"><div>Speed: <b id="score">0</b></div><div>Boosts: <b id="boost">0</b></div><div>Best: <b id="best">0</b></div></div>
+  <canvas id="c" width="400" height="540"></canvas>
+  <button class="btn" id="playBtn" onclick="start()">▶ START RACE</button>
+</div>
 
-  <div class="logs" id="logs"></div>
+<div class="controls">
+  <button ontouchstart="keys.left=true" ontouchend="keys.left=false" onmousedown="keys.left=true" onmouseup="keys.left=false">◀</button>
+  <button ontouchstart="keys.right=true" ontouchend="keys.right=false" onmousedown="keys.right=true" onmouseup="keys.right=false">▶</button>
+</div>
 
-  <div class="final" id="final">
-    <h2>✅ Deployed Successfully</h2>
-    <p>Akbar Kittur is now running in your organization</p>
-    <p style="font-size:12px;color:#555">Instance: cloud-engineer.xlarge | Skills: AWS, Terraform, Docker, K8s, Linux | Uptime: 99.9% | Cost: Saves 40% AWS bill</p>
-    <div class="links">
-      <a class="hire" href="https://www.linkedin.com/in/mohammed-akbar-kittur" target="_blank">Hire Me →</a>
-      <a href="https://mohammed-akbar-kittur.github.io/" target="_blank">Portfolio</a>
-      <a href="https://github.com/Mohammed-Akbar-Kittur" target="_blank">GitHub</a>
-    </div>
-    <p style="color:#222;font-size:10px;margin-top:20px">Built by Akbar • No one has a deploy button portfolio • Bangalore 2026</p>
-  </div>
+<div class="links">
+  <a href="https://mohammed-akbar-kittur.github.io/">Portfolio</a>
+  <a href="https://github.com/Mohammed-Akbar-Kittur">GitHub</a>
+  <a class="hire" href="https://www.linkedin.com/in/mohammed-akbar-kittur">Hire Me →</a>
 </div>
 
 <script>
-const steps=[
-"[INIT] Connecting to ap-south-1 (Mumbai)... OK",
-"[AUTH] Verifying IAM: akbar-kittur... Authorized ✅",
-"[BUILD] Pulling image: mohammedakbarkittur/myweb:latest... Done",
-"[CHECK] Skills check: AWS... PASSED",
-"[CHECK] Skills check: Terraform... PASSED",
-"[CHECK] Skills check: Docker... PASSED",
-"[CHECK] Skills check: Kubernetes... PASSED",
-"[CHECK] Skills check: Linux... PASSED",
-"[DEPLOY] Launching instance i-akbar-kittur-prod...",
-"[SCALE] Auto Scaling Group: 2-6 instances ready",
-"[TEST] Load test 1000 req... 0% failure",
-"[SECURE] Security Group: Hardened",
-"[DONE] Deployment completed in 3.2s",
-"[COST] Estimated savings: 40% vs old infra"
-];
-function deploy(){
-  document.getElementById('start').style.display='none';
-  const logs=document.getElementById('logs'); logs.style.display='block';
-  let i=0;
-  let timer=setInterval(()=>{
-    if(i<steps.length){
-      let d=document.createElement('div'); d.className='log'; d.textContent='> '+steps[i]; logs.appendChild(d);
-      logs.scrollTop=logs.scrollHeight; i++;
-    }else{
-      clearInterval(timer);
-      setTimeout(()=>{ document.getElementById('final').style.display='block'; logs.style.display='none'; },600);
-    }
-  },280);
+const canvas=document.getElementById('c'), ctx=canvas.getContext('2d');
+let player={x:180,y:460,w:40,h:60,speed:6}, keys={left:false,right:false}, obstacles=[], boosts=[], score=0, best=localStorage.getItem('akbar-best')||0, playing=false, loop;
+document.getElementById('best').textContent=best;
+function start(){
+  document.getElementById('playBtn').style.display='none';
+  player.x=180; obstacles=[]; boosts=[]; score=0; playing=true;
+  loop=setInterval(update, 1000/60);
+  setTimeout(()=>{ if(playing) spawnObs(); },500);
+  setTimeout(()=>{ if(playing) spawnBoost(); },1200);
 }
-</script>
-</body>
-</html>
+function spawnObs(){ if(!playing) return; obstacles.push({x:Math.random()*340,y:-80,w:36,h:36,type:Math.random()>0.5?'bill':'down'}); setTimeout(spawnObs, 700-Math.min(500,score/2)); }
+function spawnBoost(){ if(!playing) return; boosts.push({x:Math.random()*340,y:-80,w:28,h:28,type:Math.random()>0.5?'terraform':'docker'}); setTimeout(spawnBoost, 2000); }
+function update(){
+  if(keys.left) player.x-=player.speed; if(keys.right) player.x+=player.speed;
+  player.x=Math.max(0,Math.min(360,player.x));
+  ctx.fillStyle='#0f0f1e'; ctx.fillRect(0,0,400,540);
+  ctx.fillStyle='#1a1a35'; ctx.fillRect(90,0,4,540); ctx.fillRect(306,0,4,540);
+  ctx.strokeStyle='#222'; ctx.setLineDash([20,20]); ctx.beginPath(); ctx.moveTo(200,0); ctx.lineTo(200,540); ctx.stroke(); ctx.setLineDash([]);
+  obstacles.forEach((o,i)=>{ o.y+=4+score/100; ctx.font='26px Arial'; ctx.fillText(o.type==='bill'?'💸':'🔴',o.x,o.y); if(collide(player,o)) gameOver(); if(o.y>600) obstacles.splice(i,1); });
+  boosts.forEach((b,i)=>{ b.y+=4+score/100; ctx.font='22px Arial'; ctx.fillText(b.type==='terraform'?'🚀':'🐳',b.x,b.y); if(collide(player,b)){ score+=25; boosts.splice(i,1); document.getElementById('boost').textContent=parseInt(document.getElement
