@@ -1,88 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mohammed Akbar Kittur - Cloud DevOps Engineer</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Akbar Kittur - Cloud DevOps Engineer</title>
 <style>
-*{box-sizing:border-box;margin:0}
-body{background:#080810;color:#fff;font-family:Arial,sans-serif;text-align:center;min-height:100vh}
-h1{padding:14px 0 2px;font-size:21px;letter-spacing:.5px}
-p.title{color:#7c3aed;font-weight:800;font-size:11px;letter-spacing:3px;margin-bottom:2px}
-p.sub{color:#666;font-size:9px;margin-bottom:10px}
-#gameBox{max-width:360px;margin:0 auto;position:relative;background:#000;border:2px solid #222;border-radius:16px;overflow:hidden;box-shadow:0 0 30px rgba(124,58,237,.25)}
-canvas{display:block;width:100%;height:400px;background:linear-gradient(#e0f2fe,#f8fbff)}
-#hud{display:flex;justify-content:space-between;padding:7px 10px;background:#111;font-size:9px;color:#888;border-bottom:1px solid #222}
+body{margin:0;background:#080810;color:#fff;font-family:Arial;text-align:center}
+h1{padding:14px 0 2px;font-size:20px}
+.title{color:#7c3aed;font-weight:800;font-size:11px;letter-spacing:3px}
+.sub{color:#555;font-size:9px;margin-bottom:10px}
+#box{max-width:360px;margin:0 auto;position:relative;border:2px solid #222;border-radius:16px;overflow:hidden;background:#000}
+canvas{display:block;width:100%;height:420px}
+#hud{display:flex;justify-content:space-between;padding:6px 10px;background:#111;color:#666;font-size:9px;border-bottom:1px solid #222}
 #hud b{color:#fff}
-.btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#7c3aed;color:#fff;border:0;padding:12px 22px;border-radius:24px;font-weight:800;font-size:12px;cursor:pointer;box-shadow:0 0 20px rgba(124,58,237,.6);z-index:5}
-.controls{padding:10px;display:flex;gap:8px;justify-content:center}
-.controls button{flex:1;max-width:100px;padding:12px;background:#151528;border:1px solid #2a2a4a;color:#fff;border-radius:10px;font-size:16px}
-.links{margin:12px auto;max-width:360px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:0 10px}
-.links a{padding:10px 14px;border-radius:20px;border:1px solid #2a2a44;background:#111;color:#999;text-decoration:none;font-size:11px;font-weight:700}
-.links a.hire{background:#7c3aed;border-color:#7c3aed;color:#fff;flex:1 1 100%;font-size:12px;box-shadow:0 4px 14px rgba(124,58,237,.4)}
-.links a.linkedin{border-color:#0a66c2;color:#7fb7ff;background:#0a0a1a;flex:1}
-.links a.github{flex:1}
+#start{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#7c3aed;color:#fff;border:0;padding:12px 24px;border-radius:24px;font-weight:800;z-index:10}
+.ctrl{display:flex;gap:8px;justify-content:center;padding:10px}
+.ctrl button{width:100px;padding:12px;background:#1a1a2e;border:1px solid #333;color:#fff;border-radius:10px}
+.links{max-width:360px;margin:12px auto;display:flex;flex-wrap:wrap;gap:6px;padding:0 10px;justify-content:center}
+.links a{padding:10px 14px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:700;border:1px solid #333}
+.hire{background:#7c3aed!important;color:#fff!important;border-color:#7c3aed!important;flex:1 1 100%}
+.linkedin{color:#60a5fa;background:#111;flex:1}
+.github{color:#aaa;background:#111;flex:1}
 </style>
 </head>
 <body>
-
 <h1>MOHAMMED AKBAR KITTUR</h1>
-<p class="title">CLOUD DEVOPS ENGINEER ☁️</p>
-<p class="sub">AWS • Terraform • Docker • Kubernetes • Bangalore</p>
+<div class="title">CLOUD DEVOPS ENGINEER ☁️</div>
+<div class="sub">AWS • Terraform • Docker • Kubernetes • Bangalore</div>
 
-<div id="gameBox">
-  <div id="hud"><div>☁️ <b id="score">0</b></div><div>🚀 <b id="boost">0</b></div><div>🏆 <b id="best">0</b></div></div>
-  <canvas id="c" width="360" height="400"></canvas>
-  <button class="btn" id="playBtn" onclick="start()">▶ START RACE</button>
+<div id="box">
+<div id="hud"><div>☁️ <b id="sc">0</b></div><div>🚀 <b id="bo">0</b></div><div>🏆 <b id="be">0</b></div></div>
+<canvas id="c" width="360" height="420"></canvas>
+<button id="start" onclick="start()">▶ START RACE</button>
 </div>
 
-<div class="controls">
-  <button ontouchstart="keys.left=true" ontouchend="keys.left=false" onmousedown="keys.left=true" onmouseup="keys.left=false">◀</button>
-  <button ontouchstart="keys.right=true" ontouchend="keys.right=false" onmousedown="keys.right=true" onmouseup="keys.right=false">▶</button>
+<div class="ctrl">
+<button ontouchstart="L=1" ontouchend="L=0" onmousedown="L=1" onmouseup="L=0">◀</button>
+<button ontouchstart="R=1" ontouchend="R=0" onmousedown="R=1" onmouseup="R=0">▶</button>
 </div>
 
 <div class="links">
-  <a class="hire" href="mailto:kitturmohammedakbar@gmail.com?subject=Hiring%20Cloud%20DevOps%20Engineer%20Akbar">📧 Hire Me → kitturmohammedakbar@gmail.com</a>
-  <a class="linkedin" href="https://www.linkedin.com/in/mohammed-akbar-kittur" target="_blank">LinkedIn</a>
-  <a class="github" href="https://github.com/Mohammed-Akbar-Kittur" target="_blank">GitHub</a>
+<a class="hire" href="mailto:kitturmohammedakbar@gmail.com">📧 Hire Me → kitturmohammedakbar@gmail.com</a>
+<a class="linkedin" href="https://www.linkedin.com/in/mohammed-akbar-kittur" target="_blank">LinkedIn</a>
+<a class="github" href="https://github.com/Mohammed-Akbar-Kittur" target="_blank">GitHub</a>
 </div>
 
 <script>
-const canvas=document.getElementById('c'), ctx=canvas.getContext('2d');
-let player={x:160,y:330,w:34,h:50,speed:5}, keys={left:false,right:false}, obstacles=[], boosts=[], clouds=[], score=0, best=localStorage.getItem('akbar-best')||0, playing=false, loop;
-document.getElementById('best').textContent=best;
-for(let i=0;i<6;i++) clouds.push({x:Math.random()*300,y:Math.random()*350,s:Math.random()*0.5+0.5,sp:Math.random()*0.7+0.3});
-function start(){
-  document.getElementById('playBtn').style.display='none';
-  player.x=160; obstacles=[]; boosts=[]; score=0; playing=true;
-  document.getElementById('boost').textContent=0;
-  loop=setInterval(update, 1000/60);
-  setTimeout(()=>{ if(playing) spawnObs(); },400);
-  setTimeout(()=>{ if(playing) spawnBoost(); },1000);
+c=document.getElementById('c');ctx=c.getContext('2d');let x=160,y=340,w=34,h=40,s=5,L=0,R=0,obs=[],bst=[],cld=[],score=0,best=localStorage.getItem('b')||0,play=0,it;
+document.getElementById('be').textContent=best;
+for(let i=0;i<6;i++) cld.push({x:Math.random()*300,y:Math.random()*400,a:Math.random()*0.6+0.4,v:Math.random()*1+0.3});
+function start(){document.getElementById('start').style.display='none';x=160;obs=[];bst=[];score=0;play=1;it=setInterval(up,1000/60);setTimeout(so,400);setTimeout(sb,900);}
+function so(){if(!play)return;obs.push({x:Math.random()*300,y:-40,w:28,h:28,t:Math.random()>0.5?'💸':'🔴'});setTimeout(so,800-Math.min(500,score));}
+function sb(){if(!play)return;bst.push({x:Math.random()*300,y:-40,w:22,h:22,t:Math.random()>0.5?'🚀':'🐳'});setTimeout(sb,1700);}
+function up(){
+if(L) x-=s;if(R) x+=s;x=Math.max(0,Math.min(326,x));
+let g=ctx.createLinearGradient(0,0,0,420);g.addColorStop(0,'#bae6fd');g.addColorStop(1,'#f0f9ff');ctx.fillStyle=g;ctx.fillRect(0,0,360,420);
+cld.forEach(c=>{c.y+=c.v;if(c.y>430){c.y=-20;c.x=Math.random()*300;}ctx.font=(20*c.a+10)+'px Arial';ctx.fillText('☁️',c.x,c.y);});
+ctx.fillStyle='#e2e8f0';ctx.fillRect(70,0,220,420);ctx.fillStyle='#fff';ctx.fillRect(73,0,2,420);ctx.fillRect(285,0,2,420);
+ctx.setLineDash([18,14]);ctx.strokeStyle='#94a3b8';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(180,0);ctx.lineTo(180,420);ctx.stroke();ctx.setLineDash([]);ctx.lineWidth=1;
+obs.forEach((o,i)=>{o.y+=3.5+score/120;ctx.font='22px Arial';ctx.fillText(o.t,o.x,o.y);if(x<o.x+o.w&&x+w>o.x&&y<o.y+o.h&&y+h>o.y)over();if(o.y>450)obs.splice(i,1);});
+bst.forEach((b,i)=>{b.y+=3.5+score/120;ctx.font='18px Arial';ctx.fillText(b.t,b.x,b.y);if(x<b.x+b.w&&x+w>b.x&&y<b.y+b.h&&y+h>b.y){score+=25;bst.splice(i,1);document.getElementById('bo').textContent=parseInt(document.getElementById('bo').textContent)+1;}if(b.y>450)bst.splice(i,1);});
+ctx.font='30px Arial';ctx.fillText('🏎️',x,y);score+=0.2;document.getElementById('sc').textContent=Math.floor(score);
 }
-function spawnObs(){ if(!playing) return; obstacles.push({x:Math.random()*300,y:-60,w:30,h:30,type:Math.random()>0.5?'bill':'down'}); setTimeout(spawnObs, 800-Math.min(500,score/2)); }
-function spawnBoost(){ if(!playing) return; boosts.push({x:Math.random()*300,y:-60,w:24,h:24,type:Math.random()>0.5?'terraform':'docker'}); setTimeout(spawnBoost, 1800); }
-function update(){
-  if(keys.left) player.x-=player.speed; if(keys.right) player.x+=player.speed;
-  player.x=Math.max(0,Math.min(326,player.x));
-  // CLOUD INSIDE ONLY
-  let grad=ctx.createLinearGradient(0,0,0,400); grad.addColorStop(0,'#bae6fd'); grad.addColorStop(1,'#f0f9ff');
-  ctx.fillStyle=grad; ctx.fillRect(0,0,360,400);
-  clouds.forEach(cl=>{ cl.y+=cl.sp; if(cl.y>420){ cl.y=-30; cl.x=Math.random()*300; } ctx.font=(20*cl.s+10)+'px Arial'; ctx.fillStyle='rgba(255,255,255,0.95)'; ctx.fillText('☁️',cl.x,cl.y); });
-  // light road inside cloud
-  ctx.fillStyle='#e2e8f0'; ctx.fillRect(70,0,220,400);
-  ctx.fillStyle='#ffffff'; ctx.fillRect(73,0,2,400); ctx.fillRect(285,0,2,400);
-  ctx.strokeStyle='#94a3b8'; ctx.setLineDash([18,14]); ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(180,0); ctx.lineTo(180,400); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth=1;
-  obstacles.forEach((o,i)=>{ o.y+=3.5+score/120; ctx.font='22px Arial'; ctx.fillText(o.type==='bill'?'💸':'🔴',o.x,o.y); if(collide(player,o)) gameOver(); if(o.y>440) obstacles.splice(i,1); });
-  boosts.forEach((b,i)=>{ b.y+=3.5+score/120; ctx.font='18px Arial'; ctx.fillText(b.type==='terraform'?'🚀':'🐳',b.x,b.y); if(collide(player,b)){ score+=25; boosts.splice(i,1); document.getElementById('boost').textContent=parseInt(document.getElementById('boost').textContent)+1; } if(b.y>440) boosts.splice(i,1); });
-  ctx.font='30px Arial'; ctx.fillText('🏎️',player.x,player.y+26);
-  ctx.fillStyle='#0f172a'; ctx.font='800 8px monospace'; ctx.fillText('CLOUD-01',player.x+2,player.y+40);
-  score+=0.2; document.getElementById('score').textContent=Math.floor(score);
-}
-function collide(a,b){ return a.x<b.x+b.w && a.x+a.w>b.x && a.y<b.y+b.h && a.y+a.h>b.y; }
-function gameOver(){ playing=false; clearInterval(loop); if(score>best){ best=Math.floor(score); localStorage.setItem('akbar-best',best); document.getElementById('best').textContent=best; } const btn=document.getElementById('playBtn'); btn.style.display='block'; btn.textContent=`💥 ${Math.floor(score)} - RESTART`; }
-window.addEventListener('keydown',e=>{ if(e.key==='ArrowLeft') keys.left=true; if(e.key==='ArrowRight') keys.right=true; });
-window.addEventListener('keyup',e=>{ if(e.key==='ArrowLeft') keys.left=false; if(e.key==='ArrowRight') keys.right=false; });
+function over(){play=0;clearInterval(it);if(score>best){best=Math.floor(score);localStorage.setItem('b',best);document.getElementById('be').textContent=best;}let b=document.getElementById('start');b.style.display='block';b.textContent='💥 '+Math.floor(score)+' RESTART';}
 </script>
 </body>
 </html>
